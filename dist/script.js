@@ -17,12 +17,35 @@ window.onscroll = function () {
 
 // Hamburger
 const hamburger = document.querySelector("#hamburger");
-const navbar = document.querySelector("#nav-menu");
+const navMenu = document.getElementById("nav-menu");
 
-hamburger.addEventListener("click", function () {
-  hamburger.classList.toggle("hamburger-active");
-  navbar.classList.toggle("hidden");
+document.querySelector("#hamburger").onclick = (e) => {
+  navMenu.classList.toggle("hidden");
+};
+
+document.addEventListener("click", (e) => {
+  if (!hamburger.contains(e.target)) {
+    navMenu.classList.add(
+      "hidden"
+    ); /*class yang dituju tidak menggunakan TITIK*/
+  }
 });
 
 // to top icon
 const toTop = document.getElementById("to-top");
+
+// theme
+const toggleButton = document.getElementById("toggle-button");
+const html = document.querySelector("html");
+
+toggleButton.addEventListener("click", (e) => {
+  html.classList.toggle("dark");
+
+  if (html.classList.contains("dark")) {
+    toggleButton.innerHTML = '<i data-feather="toggle-right"></i>';
+  } else {
+    toggleButton.innerHTML = '<i data-feather="toggle-left"></i>';
+  }
+
+  feather.replace();
+});
