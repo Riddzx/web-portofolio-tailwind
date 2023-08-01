@@ -13,12 +13,3 @@ body {
   @apply fixed z-[9999] bg-white bg-opacity-80;
   backdrop-filter: blur (5px);
 }
-.hamburger-active > div:nth-child(1) {
-  @apply rotate-45 -translate-y-[0.38rem];
-}
-.hamburger-active > div:nth-child(2) {
-  @apply scale-0;
-}
-.hamburger-active > div:nth-child(3) {
-  @apply -rotate-45;
-}
