@@ -43,9 +43,24 @@ toggleButton.addEventListener("click", (e) => {
 
   if (html.classList.contains("dark")) {
     toggleButton.innerHTML = '<i data-feather="toggle-right"></i>';
+    localStorage.theme = "dark";
   } else {
     toggleButton.innerHTML = '<i data-feather="toggle-left"></i>';
+    localStorage.theme = "light";
   }
 
   feather.replace();
 });
+
+// pindahkan posisi toggle sesuai mode
+if (
+  localStorage.theme === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+  toggleButton.innerHTML = '<i data-feather="toggle-right"></i>';
+} else {
+  document.documentElement.classList.remove("dark");
+  toggleButton.innerHTML = '<i data-feather="toggle-left"></i>';
+}
